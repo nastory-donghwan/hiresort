@@ -5,7 +5,7 @@
 
 기능적 요구사항
 1. 고객이 휴양소를 예약(Reservation)한다.
-2. 고객이 지불(Pay)한다.
+2. 고객이 예약하는 경우 '반드시' 지불(Pay)한다.
 3. 결제모듈(payment)에 결제를 진행하게 되고 '지불'처리 된다.
 4. 결제 '승인' 처리가 되면 예약 확정(Issue)이 된다.
 5. 고객은 마이페이지를 통해 진행상태(view)를 확인할 수 있다.
@@ -424,19 +424,19 @@ FeignClient를 이용하여 Service 대행 인터페이스(Proxy)를 구현
 
 - payment서비스를 내림
 
-![image](https://user-images.githubusercontent.com/86760678/130350522-9f175e77-47f6-43c9-84bb-2c08fadd8525.png)
+
 
 - 주문(order) 요청 및 에러 난 화면 표시
 
-![image](https://user-images.githubusercontent.com/86760678/130350564-86e59bda-2b77-44ee-b872-b5939634ba8b.png)
+
 
 - payment 서비스 재기동 후 다시 주문 요청
 
-![image](https://user-images.githubusercontent.com/86760678/130350697-2ca7b817-36d6-4f33-80b7-be19a1f4ce7a.png)
+
 
 - payment 서비스에 주문 대기 상태로 저장 확인
 
-![image](https://user-images.githubusercontent.com/86760678/130350742-87a88566-aad3-41e8-a72e-96cce39fa9c5.png)
+
 
 
 # 비동기식 호출(Pub/Sub 방식)
@@ -499,11 +499,9 @@ public class PolicyHandler{
 
 ### payment 서비스 내림
 
-![image](https://user-images.githubusercontent.com/86760678/130352224-7d22d74d-4ebf-4ac5-91b0-b36092219ca4.png)
+
 
 ### 주문 취소
-
-![image](https://user-images.githubusercontent.com/86760678/130352256-ff8aa934-f49c-4f38-a3a8-3774c05fc956.png)
 
 
 
@@ -511,17 +509,9 @@ public class PolicyHandler{
 
 viewer 인 ordertraces 서비스를 별도로 구현하여 아래와 같이 view가 출력된다.
 
-### 주문 수행 후, ordertraces
+### 주문 수행 후, view
 
-![image](https://user-images.githubusercontent.com/86760678/130352429-83e1a1d3-e263-47d7-9760-becfccf9cc96.png)
-
-![image](https://user-images.githubusercontent.com/86760678/130352435-18c4912e-11d7-4368-b0b5-0a8568bc740d.png)
-
-### 주문 취소 수행 후, ordertraces
-
-![image](https://user-images.githubusercontent.com/86760678/130352458-f2b7ad3e-4b00-4fb8-a06e-75e985475c53.png)
-
-
+![image](https://user-images.githubusercontent.com/79756040/132456216-65d6b357-a0fa-463c-9e43-2abf4cf850a0.png)
 
 # 운영
   
