@@ -530,36 +530,36 @@ viewer 인 ordertraces 서비스를 별도로 구현하여 아래와 같이 view
 - git에서 소스 가져오기
 
 ```
-git clone https://github.com/3-5Team/skanu.git
+https://github.com/nastory-donghwan/hiresort.git
 ```
 
 - Build 및 Azure Container Resistry(ACR) 에 Push 하기
  
 ```bash
 cd ..
-cd order
+cd reservation
 mvn package
-az acr build --registry skccacr --image skccacr.azurecr.io/order:latest .
+az acr build --registry nastory --image nastory.azurecr.io/reservation:latest .
 
 cd ..
 cd payment
 mvn package
-az acr build --registry skccacr --image skccacr.azurecr.io/payment:latest .
+az acr build --registry nastory --image nastory.azurecr.io/payment:latest .
 
 cd ..
-cd delivery
+cd issue
 mvn package
-az acr build --registry skccacr --image skccacr.azurecr.io/delivery:latest .
+az acr build --registry nastory --image nastory.azurecr.io/issue:latest .
 
 cd ..
-cd ordertrace
+cd view
 mvn package
-az acr build --registry skccacr --image skccacr.azurecr.io/ordertrace:latest .
+az acr build --registry nastory --image nastory.azurecr.io/view:latest .
 
 cd ..
 cd gateway
 mvn package
-az acr build --registry skccacr --image skccacr.azurecr.io/gateway:latest .
+az acr build --registry nastory --image nastory.azurecr.io/gateway:latest .
 
 ```
 
