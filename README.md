@@ -565,17 +565,18 @@ az acr build --registry nastory --image nastory.azurecr.io/gateway:latest .
 
 - ACR에 정상 Push 완료
 
-![image](https://user-images.githubusercontent.com/89397401/130728262-6870ae32-b1fd-487d-9c38-1314b5fe9a23.png)
+![image](https://user-images.githubusercontent.com/79756040/132453826-635c5094-f73b-40e7-bca2-5e8f3e0dbdbe.png)
+
 
 - Kafka 설치 및 배포 완료
 
-![image](https://user-images.githubusercontent.com/89397401/130728767-545dc1e9-6c3b-4937-b3e7-0a8af179567c.png)
+![image](https://user-images.githubusercontent.com/79756040/132453845-b93a9b4b-fa42-464b-806e-72b2b155482c.png)
 
 - Kubernetes Deployment, Service 생성
 
 ```sh
 cd ..
-cd order/kubernetes
+cd reservation/kubernetes
 kubectl apply -f deployment.yml
 kubectl apply -f service.yaml
 
@@ -585,12 +586,12 @@ kubectl apply -f deployment.yml
 kubectl apply -f service.yaml
 
 cd ..
-cd delivery/kubernetes
+cd issue/kubernetes
 kubectl apply -f deployment.yml
 kubectl apply -f service.yaml
 
 cd ..
-cd ordertrace/kubernetes
+cd view/kubernetes
 kubectl apply -f deployment.yml
 kubectl apply -f service.yaml
 
@@ -600,46 +601,13 @@ kubectl apply -f deployment.yml
 kubectl apply -f service.yaml
 ```
 
-/order/kubernetes/deployment.yml 파일 
-```yml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: order
-  labels:
-    app: order
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: order
-  template:
-    metadata:
-      labels:
-        app: order
-    spec:
-      containers:
-        - name: order
-          image: skccacr.azurecr.io/order:latest
-          ports:
-            - containerPort: 8080
-```
+/reservation/kubernetes/deployment.yml 파일 
+![image](https://user-images.githubusercontent.com/79756040/132453951-5a418ce5-e5b2-4290-8c6c-58534ff18e7e.png)
+
 
 /order/kubernetes/service.yaml 파일 
-```yml
-apiVersion: v1
-kind: Service
-metadata:
-  name: order
-  labels:
-    app: order
-spec:
-  ports:
-    - port: 8080
-      targetPort: 8080
-  selector:
-    app: order
-```
+![image](https://user-images.githubusercontent.com/79756040/132453964-d9b7f8f6-4a34-4005-9a05-c61a79c72046.png)
+
 
 전체 deploy 완료 현황
 
