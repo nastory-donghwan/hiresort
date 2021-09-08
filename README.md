@@ -423,20 +423,16 @@ FeignClient를 이용하여 Service 대행 인터페이스(Proxy)를 구현
 ```
 
 - payment서비스를 내림
+![image](https://user-images.githubusercontent.com/79756040/132456381-12788d5b-fef2-4f5c-8f2f-8cae5badbb21.png)
 
+- 예약(reservation) 요청 및 에러 난 화면 표시
 
-
-- 주문(order) 요청 및 에러 난 화면 표시
-
+![image](https://user-images.githubusercontent.com/79756040/132456444-76a94449-f852-4198-8a96-253b47311c4b.png)
 
 
 - payment 서비스 재기동 후 다시 주문 요청
-
-
-
-- payment 서비스에 주문 대기 상태로 저장 확인
-
-
+![image](https://user-images.githubusercontent.com/79756040/132456598-afa74db3-90be-4246-aa4e-c78f3f6ba2d2.png)
+![image](https://user-images.githubusercontent.com/79756040/132456699-354279de-a6ec-4bbf-9753-7d3e0410eb2f.png)
 
 
 # 비동기식 호출(Pub/Sub 방식)
@@ -498,11 +494,12 @@ public class PolicyHandler{
 - 비동기식 호출은 다른 서비스가 비정상이여도 이상없이 동작가능하여, payment 서비스에 장애가 나도 order 서비스는 정상 동작을 확인
 
 ### payment 서비스 내림
+![image](https://user-images.githubusercontent.com/79756040/132456755-5500fad6-8c74-4507-9741-4d3575946e46.png)
 
 
 
 ### 주문 취소
-
+![image](https://user-images.githubusercontent.com/79756040/132456815-ce96110e-7abe-432a-ab07-86634ad94571.png)
 
 
 # CQRS
